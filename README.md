@@ -1,40 +1,8 @@
 # ainews-agent
 AI日报agent，功能是在网络上搜索最新的AI新闻，然后交给LLM来分析总结摘要，最后输出结果。
 
-用户触发任务
-       │
-       v
-  配置加载 (ConfigLoader)
-       │
-       v
-  缓存检查 (NewsCache) ──有缓存──> 直接使用
-       │无缓存
-       v
-  新闻搜索 (NewsSearcher) ──> 获取新闻列表
-       │
-       v
-  时效性过滤 (FreshnessFilter) ──> 过滤过期新闻
-       │
-       v
-  初筛过滤 (QualityFilter) ──> 标题+摘要筛选、去重
-       │
-       v
-  内容获取 (NewsFetcher) ──> 获取详细内容
-       │
-       v
-  语言过滤 (MultiLanguage) ──> 检测并处理多语言
-       │
-       v
-  截断处理 (Truncator) ──> 控制文章长度
-       │
-       v
-  敏感内容过滤 (ContentModeration) ──> 安全检查
-       │
-       v
-  批量LLM分析 (LLMAnalyzer) ──> 生成摘要总结
-       │
-       v
-  飞书推送 (FeishuSender) ──> 发送到飞书群
+用户触发任务──> 
+配置加载 ──>缓存检查 ──> 新闻搜索 (NewsSearcher) ─>时效性过滤 ─>初筛过滤 ──>内容获取    ──>语言过滤  ──>截断处理   ──>敏感内容过滤  ──>批量LLM分析  ──>飞书推送
 ```
 ├── src/
 │   ├── __init__.py
